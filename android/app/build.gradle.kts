@@ -81,7 +81,7 @@ android {
         minSdk = flutter.minSdkVersion
         targetSdk = 35
         versionCode = 10009870
-        versionName = "0.9.87 link"
+        versionName = "0.9.87 link-patched.1"
         ndk {
             abiFilters.addAll(arrayOf("armeabi-v7a", "arm64-v8a", "x86_64"))
         }
@@ -96,18 +96,18 @@ android {
         }
     }
 
-    signingConfigs {
-        create("release") {
-            keyAlias = keystoreProperties["keyAlias"] as String
-            keyPassword = keystoreProperties["keyPassword"] as String
-            storeFile = keystoreProperties["storeFile"]?.let { file(it) }
-            storePassword = keystoreProperties["storePassword"] as String
-        }
-    }
+    //signingConfigs {
+    //    create("release") {
+    //        keyAlias = keystoreProperties["keyAlias"] as String
+    //        keyPassword = keystoreProperties["keyPassword"] as String
+    //        storeFile = keystoreProperties["storeFile"]?.let { file(it) }
+    //        storePassword = keystoreProperties["storePassword"] as String
+    //    }
+    //}
 
     buildTypes {
         getByName("release") {
-            signingConfig = signingConfigs.getByName("release")
+            signingConfig = null
         }
     }
 }
