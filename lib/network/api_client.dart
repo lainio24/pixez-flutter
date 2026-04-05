@@ -71,7 +71,7 @@ class ApiClient {
   Future<Dio> createDioClient() async {
     final compatibleClient = await r.RhttpCompatibleClient.create(
         settings: userSetting.disableBypassSni
-            ? null
+            ? r.ClientSettings(tlsSettings:r.TlsSettings(verifyCertificates: false))
             : r.ClientSettings(
                 tlsSettings:
                     r.TlsSettings(verifyCertificates: false, sni: false),
@@ -99,7 +99,7 @@ class ApiClient {
   static Future<ConversionLayerAdapter> createCompatibleClient() async {
     final compatibleClient = await r.RhttpCompatibleClient.create(
         settings: userSetting.disableBypassSni
-            ? null
+            ? r.ClientSettings(tlsSettings:r.TlsSettings(verifyCertificates: false))
             : r.ClientSettings(
                 tlsSettings:
                     r.TlsSettings(verifyCertificates: false, sni: false),

@@ -83,7 +83,7 @@ android {
         versionCode = 10009870
         versionName = "0.9.87 link-patched.1"
         ndk {
-            abiFilters.addAll(arrayOf("armeabi-v7a", "arm64-v8a", "x86_64"))
+            abiFilters.addAll(arrayOf("armeabi-v7a", "arm64-v8a"))
         }
     }
     splits {
@@ -91,7 +91,7 @@ android {
             val isBuildingBundle = gradle.startParameter.taskNames.any { it.lowercase().contains("bundle") }
             isEnable = !isBuildingBundle
             reset()
-            include("armeabi-v7a", "arm64-v8a", "x86_64")
+            include("armeabi-v7a", "arm64-v8a")
             isUniversalApk = true
         }
     }

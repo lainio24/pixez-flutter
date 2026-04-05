@@ -264,7 +264,7 @@ entryPoint(SendMessage message) async {
   final dio = Dio();
   final client = await r.RhttpCompatibleClient.createSync(
     settings: (message.disableBypassSni || pictureSource != ImageHost)
-        ? null
+        ? r.ClientSettings(tlsSettings:r.TlsSettings(verifyCertificates: false))
         : r.ClientSettings(
             tlsSettings: r.TlsSettings(verifyCertificates: false, sni: false),
             dnsSettings: r.DnsSettings.dynamic(

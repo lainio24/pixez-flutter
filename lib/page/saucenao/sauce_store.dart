@@ -140,7 +140,7 @@ abstract class SauceStoreBase with Store {
       // if (!userSetting.disableBypassSni) {
       //   final compatibleClient = await RhttpCompatibleClient.create(
       //     settings: userSetting.disableBypassSni
-      //         ? null
+      //         ? r.ClientSettings(tlsSettings:r.TlsSettings(verifyCertificates: false))
       //         : ClientSettings(
       //             tlsSettings: TlsSettings(
       //               verifyCertificates: false,

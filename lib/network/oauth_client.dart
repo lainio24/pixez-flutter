@@ -56,7 +56,7 @@ class OAuthClient {
   Future<Dio> createDioClient() async {
     final compatibleClient = await r.RhttpCompatibleClient.create(
         settings: userSetting.disableBypassSni
-            ? null
+            ? r.ClientSettings(tlsSettings:r.TlsSettings(verifyCertificates: false))
             : r.ClientSettings(
                 tlsSettings: r.TlsSettings(
                     verifyCertificates: false, sni: false),

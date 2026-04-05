@@ -77,7 +77,7 @@ class PixivImage extends StatefulWidget {
       settings:
           (userSetting.disableBypassSni ||
               userSetting.pictureSource != ImageHost)
-          ? null
+          ? r.ClientSettings(tlsSettings:r.TlsSettings(verifyCertificates: false))
           : r.ClientSettings(
               tlsSettings: r.TlsSettings(verifyCertificates: false, sni: false),
               dnsSettings: r.DnsSettings.dynamic(
